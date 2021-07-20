@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const renderPlayers = (data) => {
         data.map(player => {
 
-
             const playerDiv = document.createElement('div')
             playerDiv.className = "player"
             playerDiv.dataset.playerId = player.id
@@ -59,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let meterDiv = data.querySelector('.meter')
         meterDiv.style.position = 'relative'
         meterDiv.style.left = String(Number(statusDiv.innerHTML) * 10) + "%"
-
     }
 
     const decrement = (data) => {
