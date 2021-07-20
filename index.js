@@ -28,14 +28,23 @@ document.addEventListener("DOMContentLoaded", () => {
             playerDiv.innerHTML = `
                 <h4>${player.name}</h4>
                 <div class="meter" style="position: relative; left: ${String(player.status * 10) + "%"}">X</div>
-                <div>Status:</div>
-                <div class='status'>${player.status}</div>
-                <div>Goal:</div>
-                <div class="goals">${player.goal}</div>
-                <button class="decrement">-</button>
-                <button class="increment">+</button>                       
-            `
-            root.appendChild(playerDiv)
+                <h4>Status:</h4>
+                <div class='status'>
+                    <span>
+                        <button class="decrement">-</button>
+                    </span>
+                    <span class="value">${player.status}</span>   
+                    <span>
+                        <button class="increment">+</button>
+                    </span>
+                </div>
+                <h4>Goal:</h4>
+                <div class="goals">
+                        ${player.goal}
+                </div>
+                `
+            let playerWrapper = document.getElementById("player-wrapper")
+            playerWrapper.appendChild(playerDiv)
         })
     }
 
@@ -52,20 +61,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const increment = (data) => {
-        let statusDiv = data.querySelector('.status')
+        let statusDiv = data.parentElement.querySelector('.value')
         statusDiv.innerHTML = Number(statusDiv.innerHTML) + 1
-        updatePlayer(data.dataset.playerId, Number(statusDiv.innerHTML))
-        let meterDiv = data.querySelector('.meter')
+        updatePlayer(data.parentElement.parentElement.dataset.playerId, Number(statusDiv.innerHTML))
+        let meterDiv = statusDiv.parentElement.parentElement.querySelector('.meter')
         meterDiv.style.position = 'relative'
         meterDiv.style.left = String(Number(statusDiv.innerHTML) * 10) + "%"
     }
 
     const decrement = (data) => {
-        let statusDiv = data.querySelector('.status')
+        let statusDiv = data.parentElement.querySelector('.value')
         if (Number(statusDiv.innerHTML) > 0) {
             statusDiv.innerHTML = Number(statusDiv.innerHTML) - 1
-            updatePlayer(data.dataset.playerId, Number(statusDiv.innerHTML))
-            let meterDiv = data.querySelector('.meter')
+            updatePlayer(data.parentElement.parentElement.dataset.playerId, Number(statusDiv.innerHTML))
+            let meterDiv = statusDiv.parentElement.parentElement.querySelector('.meter')
             meterDiv.style.position = 'relative'
             meterDiv.style.left = String(Number(statusDiv.innerHTML) * 10) + "%"
 
