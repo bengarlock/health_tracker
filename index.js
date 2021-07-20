@@ -1,17 +1,4 @@
 
-const data = [
-    {
-        id: 1,
-        name: "GLENDA",
-        status: 0,
-    },
-    {
-        id: 2,
-        name: "BEN",
-        status: 0,
-    }
-]
-
 const root = document.getElementById('root')
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -80,6 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const update = await response.json()
         console.log(update)
     }
+
+
+
+
 
     fetchPlayers()
     clickHandler()
