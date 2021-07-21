@@ -37,7 +37,8 @@ body {
     padding: 1em;
     margin: 2em;
     background: rgb(2,0,36);
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(133,59,133,1) 100%)
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(133,59,133,1) 100%);
+    overflow: hidden;
 }
 
 .player h4 {
