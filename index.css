@@ -11,14 +11,23 @@ body {
     background-attachment: fixed;
 }
 
+#root {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #player-wrapper {
     display: flex;
     flex-direction: row;
-    margin: 10px;
     align-items: center;
     justify-content: center;
     color: white;
     flex-wrap: wrap;
+    align-content: flex-start;
 }
 
 .player {
@@ -26,8 +35,9 @@ body {
     min-width: 300px;
     min-height: 300px;
     padding: 1em;
-    margin: 1em;
-    background-color: #262626;
+    margin: 2em;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(133,59,133,1) 100%)
 }
 
 .player h4 {
